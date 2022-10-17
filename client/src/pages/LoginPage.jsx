@@ -24,7 +24,7 @@ export default function LoginPage() {
         user.username == userDetails.username &&
         user.password == userDetails.password
       ) {
-        navigate(`/MainPage/${user.username}`);
+        navigate(`/MoviesPage/${user.username}`);
       } else {
         console.log("no");
       }

@@ -8,7 +8,7 @@ const getMovies = async () => {
       name: movie.name,
       yearPremiered: movie.premiered,
       genres: movie.genres,
-      image: movie.url,
+      image: movie.image.medium,
     };
   });
   return movies;
