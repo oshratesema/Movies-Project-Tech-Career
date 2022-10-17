@@ -12,5 +12,13 @@ router.get('/', async (req,res) => {
     }
    
 })
+router.put("/",async(req,res)=>{
+    try{
+        const obj = req.body;
+        const editMovie = await editMovie(obj)
+        res.status(200).json(obj)
+    }catch(e){
 
+    }
+})
 module.exports = router;

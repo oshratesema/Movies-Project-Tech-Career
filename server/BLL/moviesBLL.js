@@ -13,5 +13,11 @@ const getMovies = async () => {
   });
   return movies;
 };
+const editMovie = async () => {
+  let {data: movies} = await moviesWS.getMovies();
+  movies = movies.map(movie => {
+    
+  })
+} 
 
 module.exports = {getMovies}
