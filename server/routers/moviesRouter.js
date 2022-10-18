@@ -13,13 +13,20 @@ router.get('/', async (req,res) => {
    
 })
 
-router.put("/",async(req,res)=>{
-    try{
-        const obj = req.body;
-        const editMovie = await editMovie(obj)
-        res.status(200).json(obj)
-    }catch(e){
-
-    }
+router.get('/:id', async (req, res) => {
+      const { id } = req.params;
+      const movie = await moviesBLL.getMovies(id);
+      res.json(movie);
 })
+  
+
+// router.put("/",async(req,res)=>{
+//     try{
+//         const obj = req.body;
+//         const editMovie = await editMovie(obj)
+//         res.status(200).json(obj)
+//     }catch(e){
+
+//     }
+// })
 module.exports = router;
