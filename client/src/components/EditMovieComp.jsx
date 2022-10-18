@@ -14,7 +14,7 @@ export default function EditMovieComp() {
 
   return (
     <div className="p-5 d-flex flex-column align-items-center">
-      <h3 className="mt-4">Edit Movie : {name}</h3>
+      <h3 className="mt-4">Edit Movie: {name}</h3>
       <div className="d-flex flex-column p-5">
         name: <input className="mb-4" onChange={(e) => handleInput(e)}  type="text" name="name" />
         genres: <input className="mb-4" onChange={(e) => handleInput(e)} type="text" name="genres" />

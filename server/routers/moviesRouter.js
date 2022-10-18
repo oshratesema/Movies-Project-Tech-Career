@@ -12,6 +12,7 @@ router.get('/', async (req,res) => {
     }
    
 })
+
 router.put("/",async(req,res)=>{
     try{
         const obj = req.body;
