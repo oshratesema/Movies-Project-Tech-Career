@@ -15,7 +15,7 @@ export default function App() {
         <Route path='/MainPage/:username' element={<MainPage/>}/>
         <Route path='/AllMoviesPage/:username' element={<AllMoviesPage/>}/>
         <Route path='/MoviesPage/:username' element={<MoviesPage/>}/>
-        <Route path='/EditMovieComp/:name' element={<EditMovieComp/>}/>
+        <Route path='/EditMovieComp/:id' element={<EditMovieComp/>}/>
       </Routes>
     </div>
   )

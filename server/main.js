@@ -4,7 +4,7 @@ const cors = require("cors");
 const membersRouter = require("./routers/membersRouters");
 const usersRouter = require("./routers/usersRouter");
 const moviesRouter = require("./routers/moviesRouter");
-const subsRouter = require("./routers/SubscriptionsRouter");
+const subsRouter = require("./routers/subscriptionsRouter");
 
 const app = express();
 
@@ -18,7 +18,7 @@ app.use(express.json());
 app.use("/members", membersRouter);
 app.use("/users", usersRouter);
 app.use("/movies", moviesRouter);
-app.use("/subs", subsRouter);
+app.use("/subscriptions", subsRouter);
 
 app.listen(7000, () => {
   console.log("Server is listening");

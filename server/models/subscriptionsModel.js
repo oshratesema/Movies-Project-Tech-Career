@@ -6,9 +6,8 @@ const SubsSchema = new mongoose.Schema(
     memberID: String,
     date: String,
   },
-  { versionKey: false }
 );
 
-const Subs = mongoose.model('subs', SubsSchema);
+const Subs = mongoose.model('Subscriptions', SubsSchema);
 
 module.exports = Subs;

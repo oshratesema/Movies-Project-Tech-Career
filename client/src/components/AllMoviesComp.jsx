@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
-export default function AllMoviesPage() {
+export default function AllMoviesComp() {
   
   const {username} = useParams();
   const navigate = useNavigate();
@@ -16,6 +16,13 @@ export default function AllMoviesPage() {
     setMovies(response.data);
   };
 
+const deleteMovie = async (id) => {
+  const response = await axios.delete(`http://localhost:7000/movies/${id}`);
+  return response;
+}
+
+
+
   useEffect(() => {
     getMovies();
   }, []);
@@ -25,13 +32,13 @@ export default function AllMoviesPage() {
       <div className="d-flex flex-wrap">
         {movies?.map((movie) => {
           return (
-            <div className="col-3 d-flex flex-column justify-content-center align-items-center mb-5 text-white" key={movie.id}>
+            <div className="col-3 d-flex flex-column justify-content-center align-items-center mb-5 text-white" key={movie._id}>
               <img src={movie.image} alt="" />
               <h4>{movie.name}</h4>
               <h5>{movie.yearPremiered}</h5>
               <div className="d-flex">
-              <button onClick={() => navigate(`/EditMovieComp/${movie.name}`)} className="btn border-white text-white me-3">Edit</button>
-              <button className="btn border-white text-white">Delete</button>
+              <button onClick={() => navigate(`/EditMovieComp/${movie._id}`)} className="btn border-white text-white me-3">Edit</button>
+              <button onClick={() => {deleteMovie(movie._id)}} className="btn border-white text-white">Delete</button>
               </div>
             </div>
           );
