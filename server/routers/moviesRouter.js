@@ -44,6 +44,12 @@ router.put('/:id', async (req, res) => {
       res.status(500).json(e);
     }
   });
+
+ router.post('/' , async (req,res) => {
+  const obj = req.body;
+  const movies = await moviesBLL.addMovie(obj);
+  res.json(movies);
+ })
   
   
 module.exports = router;

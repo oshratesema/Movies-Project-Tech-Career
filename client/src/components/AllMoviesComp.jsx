@@ -10,6 +10,7 @@ export default function AllMoviesComp() {
   const {username} = useParams();
   const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
+  const [filteredMovies , setFilteredMovies] = useState([]);
 
   const getMovies = async () => {
     const response = await axios.get("http://localhost:7000/movies");

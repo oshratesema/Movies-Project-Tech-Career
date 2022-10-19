@@ -34,5 +34,17 @@ const deleteMovie = async (id) => {
   }
 };
 
+const addMovie = async (obj) => {
+  const movies = new Movies({
+    name: obj.name,
+    year_Premiered: obj.year_Premiered,
+    genres: obj.genres,
+    image: obj.image 
+  })
 
-module.exports = { getMovies, getById, updateMovie, deleteMovie };
+  await movies.save()
+  return 'created'
+
+}
+
+module.exports = { getMovies, getById, updateMovie, deleteMovie, addMovie };
