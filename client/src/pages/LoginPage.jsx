@@ -24,7 +24,7 @@ export default function LoginPage() {
         user.username == userDetails.username &&
         user.password == userDetails.password
       ) {
-        navigate(`/MoviesPage/${user.username}`);
+        navigate(`/MainPage/${user.username}`);
       } else {
         console.log("no");
       }
@@ -34,7 +34,7 @@ export default function LoginPage() {
   useEffect(() => {
     getUsers();
   }, []);
-
+  
   return (
     <div className="d-flex flex-column align-items-center col-12">
       <h1 className="my-5">Movies Library</h1>

@@ -30,6 +30,7 @@ export default function EditMovieComp() {
         img url: <input className="mb-4" onChange={(e) => handleInput(e)} type="text" name="img" />
         premiere: <input className="mb-4" onChange={(e) => handleInput(e)} type="text" name="premiere" />
         <button onClick={() => {updateMovie(value); }}>Save</button>
+        <button onClick={() => navigate(-1)}>Cancel</button>
       </div>
     </div>
   );
