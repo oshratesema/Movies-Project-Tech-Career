@@ -2,7 +2,7 @@ import React,{ useState,useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import SubsComponent from "./SubsComponent";
+import SubsPropsMovies from "./SubsPropsMovies";
 
 export default function AllMoviesComp() {
   
@@ -37,16 +37,6 @@ const filterMovies = async () => {
   }
 }
 
-const getSubscription = async () => {
-  const response = await axios.get("http://localhost:7000/subscription");
-  setSubs(response.data);
-};
-
-const getMembers = async () => {
-  const response = await axios.get("http://localhost:7000/members");
-  setMembers(response.data);
-};
-
 const displaySubs = async () => {
   subs.map(sub => {
   const filterSubs = members.filter(member => sub.memberID == member._id);
@@ -60,9 +50,7 @@ console.log(members);
 
 useEffect(() => {
     displaySubs()
-    getMembers()
     getMovies()
-    getSubscription()
   }, [value]);
   
   return (
@@ -85,7 +73,7 @@ useEffect(() => {
               </div>
               <div>
                 <h5>subscription watch</h5>
-                <SubsComponent movieID={movie._id}/>
+                <SubsPropsMovies movieID={movie._id}/>
               </div>
             </div>
           );

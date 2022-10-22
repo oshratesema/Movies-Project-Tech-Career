@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 
-export default function SubsComponent({movieID}) {
+export default function SubsPropsMovies({movieID}) {
 
     const [data, setData] = useState({data:''})
     const [name, setName] = useState({fullName:''})
@@ -14,14 +14,14 @@ export default function SubsComponent({movieID}) {
         if (filteredSubs != undefined){
             setData(filteredSubs);
             const {data: members} = await axios.get('http://localhost:7000/members')
-            const member = members.find(member => member.id == filteredSubs.memberID)
+            const member = members.find(member => member._id == filteredSubs.memberID)
             setName(member)
         }
     }
 
     useEffect(() => {
         dataMembers()
-    })
+    },[])
 
   return (
     <div>

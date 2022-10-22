@@ -1,18 +1,50 @@
-const membersWS = require('../DAL/membersWS');
+const Members = require("../models/memberModel");
 
 const getMembers = async () => {
-  let { data: members } = await membersWS.getMembers();
-  members = members.map((member) => {
-    return {
-      id: member.id,
-      fullName: member.name,
-      username: member.username,
-      email: member.email,
-      city: member.address.city,
-    };
-  });
-  return members;
+  try {
+    return await Members.find({});
+  } catch (e) {
+    throw { msg: e };
+  }
 };
 
-module.exports = { getMembers };
+const getById = async (id) => {
+  try {
+    return await Members.findById(id);
+  } catch (e) {
+    throw { msg: e };
+  }
+};
 
+const updateMember = async (id, obj) => {
+  try {
+    await Members.findByIdAndUpdate(id, obj);
+    return 'Updated';
+  } catch (error) {
+    throw `Error: ${error}`;
+  }
+};
+
+const deleteMember = async (id) => {
+  try {
+    await Members.findByIdAndDelete(id);
+    return 'Deleted';
+  } catch (error) {
+    throw `Error: ${error}`;
+  }
+};
+
+const addMember = async (obj) => {
+  const members = new Members({
+    fullName: obj.fullName,
+    username: obj.username,
+    email: obj.email,
+    city: obj.city
+  })
+
+  await members.save()
+  return 'created'
+
+}
+
+module.exports = { getMembers, getById, updateMember, deleteMember, addMember  };
