@@ -71,6 +71,7 @@ useEffect(() => {
         <input onChange={(e)=> {handleInput(e)}} className="text-center btn border-white px-5" type="text"/>
         <button className="btn border-white text-white" onClick={() => {filterMovies()}}>Find</button>
         </div>
+        <button onClick={()=>navigate('/AddMovieComp')}>Add Movie</button>
       <div className="d-flex flex-wrap">
         {movies?.map((movie) => {
           return (

@@ -6,6 +6,7 @@ import AllMoviesPage from './components/AllMoviesComp'
 import MoviesPage from './pages/MoviesPage'
 import EditMovieComp from './components/EditMovieComp'
 import SubsPage from './pages/SubsPage'
+import AddMovieComp from './components/AddMovieComp'
 
 
 
@@ -16,6 +17,7 @@ export default function App() {
         <Route path='/' element={<LoginPage/>}/>
         <Route path='/MainPage/:username' element={<MainPage/>}/>
         <Route path='/AllMoviesComp/:username' element={<AllMoviesPage/>}/>
+        <Route path='/AddMovieComp' element={<AddMovieComp/>}/>
         <Route path='/MoviesPage/:username' element={<MoviesPage/>}/>
         <Route path='/EditMovieComp/:id' element={<EditMovieComp/>}/>
         <Route path='/SubsPage/:username' element={<SubsPage/>}/>

@@ -1,7 +1,7 @@
-const Subs = require('../models/subscriptionsModel');
+const Subs = require("../models/subscriptionsModel");
 
 const getSubs = async () => {
-    return Subs.find({});
-}
+ return await Subs.find({})
+};
 
 module.exports = {getSubs};

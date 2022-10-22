@@ -14,7 +14,7 @@ export default function MainPage() {
       <button onClick={()=>navigate(`/AllMoviesComp/${username}}`)}>Movies</button>
       <button onClick={()=>navigate(`/SubsPage/${username}}`)}>Subscription</button>
       <button>User Management</button>
-      <button>Log Out</button>
+      <button onClick={()=>navigate(`/`)}>Log Out</button>
     </div>
     
   )

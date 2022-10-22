@@ -4,8 +4,7 @@ const router = express.Router();
 const subsBLL = require('../BLL/subscriptionsBLL');
 
 router.get('/', async (req,res) => {
-    const subs = await subsBLL.getSubs();
-    res.json(subs);
+        const subs = await subsBLL.getSubs();
+      return  res.json(subs);
 })
-
 module.exports = router;

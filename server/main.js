@@ -15,10 +15,10 @@ app.use(cors());
 app.use(express.json());
 
 // routers
+app.use("/movies", moviesRouter);
 app.use("/members", membersRouter);
 app.use("/users", usersRouter);
-app.use("/movies", moviesRouter);
-app.use("/subscriptions", subsRouter);
+app.use("/subscription", subsRouter);
 
 app.listen(7000, () => {
   console.log("Server is listening");
