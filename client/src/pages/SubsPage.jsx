@@ -24,16 +24,10 @@ export default function SubsPage() {
     return response;
   }
 
-  const handleSubsClick = () => {
-    if(showSubs == false){
-      setShowSubs(false)
-    }
-    setShowSubs(current => !current)
-  }
+  // const handleSubsClick = (e) => {
+  // }
 
 
-  console.log(members);
-    console.log(members);
   useEffect(() => {
     getMembers();
   }, []);
@@ -50,14 +44,12 @@ export default function SubsPage() {
                <h2>{member.fullName}</h2>
                <h3>Email: {member.email}</h3>
                <h3>City: {member.city}</h3>
-               <button onClick={() => navigate(`/EditMemberComp/${member._id}`)}>Edit</button>
+               <button onClick={()=> navigate(`/EditMemberComp/${member._id}`)}>Edit</button>
                <button onClick={()=>{deleteMember(member._id)}}>Delete</button>
               </div>
               <div className="border border-dark">
                 <h1>movies watched</h1>
                 <SubsPropsMembers memberID={member._id}/>
-                <button onClick={()=>{handleSubsClick()}}>subscribe to new movie</button>
-                {showSubs && <AddSubComp memberID={member._id}/>}
               </div>
             </div>
           )

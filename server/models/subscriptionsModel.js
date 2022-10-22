@@ -7,5 +7,5 @@ const subsSchema = new mongoose.Schema({
 }
 );  
 
-const Subs = mongoose.model("subs", subsSchema);
+const Subs = mongoose.model('subs', subsSchema);
 module.exports = Subs;

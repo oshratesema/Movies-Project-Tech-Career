@@ -4,7 +4,6 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function AddSubComp({memberID}) {
-  console.log(memberID);
   
   const getInitialState = () => {
     const selectedMovie = "under The Dom";
@@ -31,36 +30,34 @@ export default function AddSubComp({memberID}) {
   };
 
   const saveMovieId = () => {
-    const movieObj =  movies.filter(movie => movie.name == selectedMovie)
-    movieObj.map((movie) => setMovieID(movie._id))
-  }
-
-  // const saveMemberId = async (memberId) => {
-  //   const response = await axios.get("http://localhost:7000/member");
-  //   const members =response.data;
-  //   const memberObj = members.filter(member => member.) 
-  // };
-
+    const movieObj = movies.find(movie => movie.name == selectedMovie)
+    setMovieID(movieObj?._id )
+  }       
+  console.log(selectedMovie); 
 
   const saveObj = () => {
-    const obj = {
+    const obj = {     
     movieID : movieId ,
-    memberID: 1,
+    memberID: memberID,
     date : date
     }
     setNewSubsObj(obj)
   }
 
-  // const addSubs = async (obj) => {
-  //   const response = axios.post(`http://localhost:7000/subscription`, obj);
-  //   return response;
-  // }
+  
+  const addSubs = async (obj) => {
+    const response = axios.post(`http://localhost:7000/subscription`, obj);
+    return response;
+  }
+  console.log(newSubsObj);
 
 // console.log(movieId);
 // console.log(memberID);
 // console.log(date);
 
   useEffect(() => {
+    saveObj();
+    saveMovieId();
     getMovies();
   }, []);
 
@@ -83,7 +80,7 @@ export default function AddSubComp({memberID}) {
           })}
         </select>
         <input onChange={(e) => {handleDate(e);}} className="btn border border-dark" type="Date" />
-        <button onClick={() => {saveMovieId()}} className="btn border border-dark ">Subscribe</button>
+        <button onClick={() => {addSubs(newSubsObj)}} className="btn border border-dark ">Subscribe</button>
       </div>
     </div>
   );
