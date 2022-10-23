@@ -8,6 +8,8 @@ import EditMovieComp from './components/EditMovieComp'
 import SubsPage from './pages/SubsPage'
 import AddMovieComp from './components/AddMovieComp'
 import AddMemberComp from './components/AddMemberComp'
+import MoviePage from './pages/MoviePage'
+
 
 
 
@@ -24,6 +26,7 @@ export default function App() {
         <Route path='/SubsPage/:username' element={<SubsPage/>}/>
         <Route path='/AddMemberComp/' element={<AddMemberComp/>}/>
         <Route path='/EditMemberComp/:id' element={<EditMovieComp/>}/>
+        <Route path='/MoviePage' element={<MoviePage/>}/>
       </Routes>
     </div>
   )
