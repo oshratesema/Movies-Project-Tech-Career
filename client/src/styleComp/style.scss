@@ -1,0 +1,21 @@
+.login-page {
+  background-color: black;
+  height: 100vh;
+}
+
+.menu-page {
+    background-color: black;
+    height: 100vh;
+  .menu-page-container {
+    margin-top: 40px;
+
+    .link-box {
+      height: 250px;
+      border-radius: 2px;
+      a {
+        text-decoration: none;
+        color: aliceblue;
+      }
+    }
+  }
+}

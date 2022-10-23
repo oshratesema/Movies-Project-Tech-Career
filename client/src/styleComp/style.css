@@ -1,0 +1,24 @@
+.login-page {
+  background-color: black;
+  height: 100vh;
+}
+
+.menu-page {
+  background-color: black;
+  height: 100vh;
+}
+
+.menu-page .menu-page-container {
+  margin-top: 40px;
+}
+
+.menu-page .menu-page-container .link-box {
+  height: 250px;
+  border-radius: 2px;
+}
+
+.menu-page .menu-page-container .link-box a {
+  text-decoration: none;
+  color: aliceblue;
+}
+/*# sourceMappingURL=style.css.map */

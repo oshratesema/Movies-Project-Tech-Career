@@ -15,7 +15,6 @@ import MoviePage from './pages/MoviePage'
 
 export default function App() {
   return (
-    <div>
       <Routes>
         <Route path='/' element={<LoginPage/>}/>
         <Route path='/MainPage/:username' element={<MainPage/>}/>
@@ -28,6 +27,5 @@ export default function App() {
         <Route path='/EditMemberComp/:id' element={<EditMovieComp/>}/>
         <Route path='/MoviePage' element={<MoviePage/>}/>
       </Routes>
-    </div>
   )
 }
