@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import AddMovieComp from '../components/AddMovieComp';
 import AllMoviesPage from '../components/AllMoviesComp';
 import EditMovieComp from '../components/EditMovieComp';
+import NavBarComp from '../fetchers/NavBarComp';
 
 
 

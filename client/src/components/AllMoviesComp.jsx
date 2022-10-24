@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import SubsPropsMovies from "./SubsPropsMovies";
+import NavBarComp from "../fetchers/NavBarComp";
 
 export default function AllMoviesComp() {
   
@@ -27,12 +28,11 @@ const handleInput = (e) => {
   setValue(e.target.value)
  }
 
-const filterMovies = async () => {
-  const response = await axios.get("http://localhost:7000/movies");
+const filterMovies = () => {
   if (value == ''){
-    return response.data;
+    return movies;
   }else{
-    const filteredMovies = movies.filter((movie) => movie.name.startsWith(value))
+    const filteredMovies =  movies.filter((movie) => movie.name.toLowerCase().trim().startsWith(value.toLowerCase().trim()))
     setMovies(filteredMovies)
   }
 }
@@ -45,18 +45,20 @@ const displaySubs = async () => {
 }
 
 
-console.log(subs);
-console.log(members);
+// console.log(subs);
+// console.log(members);
+console.log(value);
 
 useEffect(() => {
     displaySubs()
     getMovies()
-  }, [value]);
+  }, []);
   
   return (
     <div className="bg-dark justify-content-center align-items-center">
+      <NavBarComp/>
         <div className="text-center mb-5">
-        <input onChange={(e)=> {handleInput(e)}} className="text-center btn border-white px-5" type="text"/>
+        <input onChange={(e)=> {handleInput(e)}} className="text-center btn border-white px-5 text-white" type="text"/>
         <button className="btn border-white text-white" onClick={() => {filterMovies()}}>Find</button>
         </div>
         <button onClick={()=>navigate('/AddMovieComp')}>Add Movie</button>
