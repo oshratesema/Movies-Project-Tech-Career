@@ -30,17 +30,17 @@ const getById = async (id) => {
     }
   };
   
-  const addSubs= async (obj) => {
+  const addSubs = async (obj) => {
     const subs = new Subs({
-        movieID : String,
-        memberID : String,
-        date : String
+      movieID: obj.movieID,
+      memberID: obj.memberID,
+      date: obj.date,
     })
   
     await subs.save()
     return 'created'
   
   }
-  
+    
   
 module.exports = {getSubs, getById, updateSubs, deleteSubs, addSubs};

@@ -17,7 +17,7 @@ export default function MainPage() {
 
   <div className="menu-page-container d-flex flex-wrap col-12 justify-content-between p-5">
     <div className="link-box d-flex bg-dark col-3 justify-content-center align-items-center bg-opacity-75">
-      <h4 className='text-white'  onClick={()=>navigate(`/AllMoviesComp/${username}}`)}>All Movies</h4>
+      <h4 className='text-white'  onClick={()=>navigate(`/MoviesPage/${username}}`)}>All Movies</h4>
     </div>
     <div className="link-box d-flex bg-dark col-3 justify-content-center align-items-center bg-opacity-75">
       <h4 className='text-white'  onClick={()=>navigate(`/SubsPage/${username}}`)}>Subscription</h4>

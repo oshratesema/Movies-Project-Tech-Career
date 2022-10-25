@@ -18,7 +18,7 @@ export default function AddSubComp({memberID}) {
 
   const getMovies = async () => {
     const response = await axios.get("http://localhost:7000/movies");
-    setMovies(response.data);
+    setMovies(response.data);        
   };
   
   const handleSelect = (e) => {
@@ -29,37 +29,35 @@ export default function AddSubComp({memberID}) {
     setDate(e.target.value);
   };
 
-  const saveMovieId = () => {
+  const saveMovieId = () => {       
     const movieObj = movies.find(movie => movie.name == selectedMovie)
     setMovieID(movieObj?._id )
-  }       
-  console.log(selectedMovie); 
+  }             
+  console.log(selectedMovie);        
 
-  const saveObj = () => {
+  const saveObj = () => {    
     const obj = {     
     movieID : movieId ,
     memberID: memberID,
-    date : date
+    date : date                
     }
-    setNewSubsObj(obj)
-  }
+    setNewSubsObj(obj)     
+  }         
 
   
   const addSubs = async (obj) => {
     const response = axios.post(`http://localhost:7000/subscription`, obj);
     return response;
   }
+  
   console.log(newSubsObj);
 
-// console.log(movieId);
-// console.log(memberID);
-// console.log(date);
 
   useEffect(() => {
     saveObj();
     saveMovieId();
     getMovies();
-  }, []);
+  }, []);     
 
   return (
     <div>
@@ -74,9 +72,10 @@ export default function AddSubComp({memberID}) {
           aria-label=".form-select-lg example"
         >
           {movies.map((movie) => {
+            console.log();
             return (
                 <option key={movie._id}>{movie.name}</option>          
-            );
+            );  
           })}
         </select>
         <input onChange={(e) => {handleDate(e);}} className="btn border border-dark" type="Date" />

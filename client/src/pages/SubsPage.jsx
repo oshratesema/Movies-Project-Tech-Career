@@ -18,7 +18,7 @@ export default function SubsPage() {
     const response = await axios.get("http://localhost:7000/members");
     setMembers(response.data);
   };
-
+     
   const deleteMember = async (id) => {
     const response = await axios.delete(`http://localhost:7000/members/${id}`);
     return response;
