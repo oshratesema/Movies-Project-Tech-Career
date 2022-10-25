@@ -21,4 +21,12 @@
   text-decoration: none;
   color: aliceblue;
 }
+
+.movies-page {
+  background-color: black;
+}
+
+.subs-page {
+  background-color: #f0f2f5;
+}
 /*# sourceMappingURL=style.css.map */

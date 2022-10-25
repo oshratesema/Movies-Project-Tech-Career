@@ -1,18 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import NavBarComp from '../fetchers/NavBarComp';
-import axios from 'axios';
-import SubsPropsMovies from '../components/SubsPropsMovies';
-
-
+import NavBarComp from "../fetchers/NavBarComp";
+import axios from "axios";
+import SubsPropsMovies from "../components/SubsPropsMovies";
 
 export default function MoviesPage() {
-
-  const [showMovies, setShowMovies] = useState(false)
-  const [showEdit, setShowEdit] = useState(false)
+  const [showMovies, setShowMovies] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
   const { username } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [value, setValue] = useState("");
   const [movies, setMovies] = useState([]);
   const [subs, setSubs] = useState([]);
@@ -31,8 +28,8 @@ export default function MoviesPage() {
 
   const handleInput = (e) => {
     setValue(e.target.value);
-    filterMovies()
-    };
+    filterMovies();
+  };
 
   const filterMovies = () => {
     if (value == "") {
@@ -40,9 +37,12 @@ export default function MoviesPage() {
     } else {
       const filteredMovies = movies.filter((movie) => {
         if (movie.name != undefined)
-          return movie.name.toString().toLowerCase().startsWith(value.toLowerCase());
+          return movie.name
+            .toString()
+            .toLowerCase()
+            .startsWith(value.toLowerCase());
       });
-      setMovies(filteredMovies)
+      setMovies(filteredMovies);
     }
   };
 
@@ -53,44 +53,41 @@ export default function MoviesPage() {
     });
   };
 
-
   useEffect(() => {
     displaySubs();
     getMovies();
   }, [value]);
 
-
   const handleMoviesClick = (event) => {
-    setShowMovies(current => !current)
-  }
+    setShowMovies((current) => !current);
+  };
 
   const handleEditClick = (event) => {
-    setShowEdit(current => !current)
-  }
+    setShowEdit((current) => !current);
+  };
 
   return (
-<div>
-
-        <NavBarComp />
-    <div className='bg-dark text-white d-flex flex-column align-items-center'>
-      <div className="bg-dark justify-content-center align-items-center">
-        <div className="text-center mb-5">
-          <input
-            onChange={(e)=>handleInput(e)}
-            className="text-center btn border-white px-5 text-white"
-            type="text"
-          />
-          <button
-            className="btn border-white text-white"
-            onClick={() => {
-              filterMovies();
-            }}
-          >
-            Find
-          </button>
-        </div>
-        <button onClick={() => navigate("/AddMovieComp")}>Add Movie</button>
-        {/* <div className="d-flex flex-wrap">
+    <div>
+      <NavBarComp />
+      <div className="movies-page text-white d-flex flex-column align-items-center">
+        <div className="justify-content-center align-items-center">
+          <div className="text-center mb-5">
+            <input
+              onChange={(e) => handleInput(e)}
+              className="text-center btn border-white px-5 text-white"
+              type="text"
+            />
+            <button
+              className="btn border-white text-white"
+              onClick={() => {
+                filterMovies();
+              }}
+            >
+              Find
+            </button>
+          </div>
+          <button onClick={() => navigate("/AddMovieComp")}>Add Movie</button>
+          {/* <div className="d-flex flex-wrap">
           {movies?.map((movie) => {
             return (
               
@@ -125,14 +122,29 @@ export default function MoviesPage() {
             );
           })}
         </div> */}
-        <div className='d-flex flex-wrap'>
-          <div className='col-6'>
-            
+          <div className="d-flex flex-wrap">
+            {movies?.map((movie) => {
+              return (
+                <div className="d-flex col-3">
+                  <div className="d-flex col-6 flex-column text-center ">
+                    <img src={movie.image} alt="" />
+                    <h4>{movie.name}</h4>
+                    <h5>{movie.yearPremiered}</h5>
+                    <div className="d-flex justify-content-between ">
+                  <button onClick={() => navigate(`/EditMovieComp/${movie._id}`)}className="btn border-white text-white">Edit </button>
+                  <button onClick={() => {deleteMovie(movie._id);}}className="btn border-white text-white">Delete </button>                      
+                    </div>
+                  </div>
+                  <div className="col-6">
+                  <h5>subscription watch</h5>
+                  <SubsPropsMovies movieID={movie._id} />
+                  </div>
+                </div>
+              );
+            })}
           </div>
-          <div className='col-6'></div>
         </div>
       </div>
     </div>
-</div>
-  )
+  );
 }

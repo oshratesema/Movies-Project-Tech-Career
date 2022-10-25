@@ -33,7 +33,7 @@ export default function SubsPage() {
   }, []);
 
   return (
-    <>
+    <div className="subs-page">
         <h1 className="text-center">subscription page</h1>
         <button onClick={()=>navigate('/AddMemberComp')}>Add Member</button>
       <div className="d-flex flex-wrap justify-content-center">
@@ -55,6 +55,6 @@ export default function SubsPage() {
           )
         })}
       </div>
-    </>
+    </div>
   );
 }

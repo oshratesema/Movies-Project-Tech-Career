@@ -89,8 +89,11 @@ return(
                 {showPopup == true? <WrongPassComp/> : null}
                 {/* <!-- Submit button --> */}
                 <button className="btn btn-primary  btn-block mb-4" onClick={() => handleSubmit()}>
-                  Sign up
+                  Log in
                 </button>
+                {/* <button className="btn btn-primary  btn-block mb-4" onClick={() => handleSubmit()}>
+                  Sign up
+                </button> */}
 
                 {/* <!-- Register buttons --> */}
                 <div className="text-center">
